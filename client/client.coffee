@@ -27,14 +27,14 @@ add = ->
 		time = $('#time')
 		task = $('#task')
 
-	if time.val() and task.val()
-		Log.insert {
-			user_id: Meteor.userId(),
-			time: time.val(),
-			task: task.val(),
-			ts: (new Date).getTime(),
-		}
+		if time.val() and task.val()
+			Log.insert {
+				user_id: Meteor.userId(),
+				time: time.val(),
+				task: task.val(),
+				ts: (new Date).getTime(),
+			}
 
-		time.val ""
-		task.val ""
-		time.focus()
+			time.val ""
+			task.val ""
+			time.focus()
