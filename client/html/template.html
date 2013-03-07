@@ -1,0 +1,27 @@
+<head>
+  <title>log</title>
+</head>
+
+<body>
+	{{loginButtons align="right"}}
+	{{>form}}
+	{{>listing}}
+</body>
+
+<template name="form">
+	<input type="text" name="" id="time" placeholder="time">
+	<input type="text" name="" id="task" placeholder="task">
+	<input type="button" value="add" id="add">
+</template>
+
+<template name="listing">
+	<ul>
+		{{#each log}}
+			{{> entry}}
+		{{/each}}
+	</ul>
+</template>
+
+<template name="entry">
+	<li>{{time}} - {{task}} - <a href="#" class="delete" data-id="{{_id}}">x</a></li>
+</template>
