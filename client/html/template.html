@@ -4,8 +4,9 @@
 
 <body>
 	{{loginButtons align="right"}}
-	{{>form}}
-	{{>listing}}
+	{{> form}}
+	{{> listing}}
+	{{> total}}
 </body>
 
 <template name="form">
@@ -24,4 +25,8 @@
 
 <template name="entry">
 	<li>{{time}} - {{task}} - <a href="#" class="delete" data-id="{{_id}}">x</a></li>
+</template>
+
+<template name="total">
+	<p>{{total}}</p>
 </template>

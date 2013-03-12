@@ -6,6 +6,14 @@ Meteor.autorun ->
 Template.listing.log = ->
 	Log.find {}, sort: { ts: -1 }
 
+Template.total.total = ->	
+	total = 0
+	logs = Log.find {}
+	logs.forEach (log) ->
+		total += parseFloat log.time
+		return
+	total
+
 Template.form.events {
 	'keyup input': (e) ->
 		if e.which is 13
