@@ -6,7 +6,7 @@
 	{{loginButtons align="right"}}
 	{{> form}}
 	{{> listing}}
-	{{> total}}
+	{{> info}}
 </body>
 
 <template name="form">
@@ -27,6 +27,6 @@
 	<li>{{time}} - {{task}} - <a href="#" class="delete" data-id="{{_id}}">x</a></li>
 </template>
 
-<template name="total">
-	<p>{{total}}</p>
+<template name="info">
+	<p>t: {{total}} - r: {{remaining}}</p>
 </template>
