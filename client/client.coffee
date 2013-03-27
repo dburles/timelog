@@ -1,5 +1,3 @@
-Log = new Meteor.Collection "log"
-
 Meteor.autorun ->
 	Meteor.subscribe "log", Meteor.userId()
 
@@ -27,8 +25,10 @@ Template.form.events {
 
 Template.listing.events {
 	'click .delete': (e) ->
+		console.log(this)
 		#if confirm "Are you sure?"
-		Log.remove { _id: $(e.target).attr('data-id') }
+		#Log.remove { _id: $(e.target).attr('data-id') }
+		#Log.remove { _id: this._id }
 }
 
 add = ->
