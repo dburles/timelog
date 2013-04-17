@@ -1,1 +1,1 @@
-Log = new Meteor.Collection "log"
+@Log = new Meteor.Collection "log"
