@@ -1,32 +1,85 @@
 <head>
-  <title>log</title>
+	<title>Log</title>
 </head>
 
 <body>
-	{{loginButtons align="right"}}
-	{{> form}}
-	{{> listing}}
-	{{> info}}
+	<div class="container">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container-fluid pull-right">
+					<ul class="nav">
+						<li class="active">
+							<a href="#">Home</a> 
+						</li>
+						<li>
+							<a id="config" href="#">Config</a>
+						</li>
+						<li>
+							<a id="auth">{{loginButtons align="right"}}</a>
+						</li>							
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				{{> form}}
+			</div>
+			<div class="span8">
+				{{> listing}}
+				{{> info}}
+			</div>
+		</div>
+	</div>
 </body>
 
 <template name="form">
-	<input type="text" name="" id="time" placeholder="time">
-	<input type="text" name="" id="task" placeholder="task">
-	<input type="button" value="add" id="add">
+	<label>Duration</label>
+	<input id="time" type="number" step="any" class="input-xlarge input-block-level">
+	<label>Task</label>
+	<input id="task" type="text" class="input-xlarge input-block-level">
+	<a id="add" class="btn">Add</a> 
 </template>
 
 <template name="listing">
-	<ul>
-		{{#each log}}
-			{{> entry}}
-		{{/each}}
-	</ul>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th width="100">Duration</th>
+				<th>Task</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each log}}
+				{{> entry}}
+			{{/each}}			
+		</tbody>
+	</table>
 </template>
 
 <template name="entry">
-	<li>{{time}} - {{task}} - <a class="delete">x</a></li>
+	<tr>
+		<td><span class="badge">{{time}}</span></td>
+		<td>{{task}}</td>
+		<td><a href="#" class="pull-right delete"><i class="icon-remove"></i></td>
+	</tr>
 </template>
 
 <template name="info">
-	<p>t: {{total}} - r: {{remaining}}</p>
+	<table class="table">
+		<thead>
+			<tr>
+				<th width="100">Total</th>
+				<th>Remaining</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span class="badge">{{total}}</span></td>
+				<td><span class="badge">{{remaining}}</span></td>
+			</tr>
+		</tbody>
+	</table>
 </template>
+
+

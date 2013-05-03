@@ -1,8 +1,6 @@
-#login-buttons {
-	float: right;
+body {
+	margin-top: 15px;
 }
 a {
-	color: red;
-	text-decoration: none;
 	cursor: pointer;
 }
