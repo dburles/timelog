@@ -53,15 +53,11 @@ Template.config_form.profile = ->
 		Meteor.user().profile
 
 Template.main.visibility = ->
-	if Session.get('main')
-		"visible"
-	else
+	if not Session.get('main')
 		"invisible"
 
 Template.config.visibility = ->
-	if Session.get('config')
-		"visible"
-	else
+	if not Session.get('config')
 		"invisible"
 
 Template.nav.active_main = ->
