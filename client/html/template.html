@@ -10,38 +10,65 @@
 		<div class="navbar">
 			<div class="navbar-inner">
 				<div class="container-fluid pull-right">
-					<ul class="nav">
-						<li class="active">
-							<a href="#">Home</a> 
-						</li>
-						<li>
-							<a id="config" href="#">Config</a>
-						</li>
-						<li>
-							<a id="auth">{{loginButtons align="right"}}</a>
-						</li>							
-					</ul>
+					{{> nav}}
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="span4">
-				{{> form}}
-			</div>
-			<div class="span8">
-				{{> listing}}
-				{{> info}}
-			</div>
-		</div>
+		{{> main}}
+		{{> config}}
 	</div>
 </body>
 
-<template name="form">
-	<label>Duration</label>
-	<input id="time" type="number" step="any" class="input-xlarge input-block-level">
-	<label>Task</label>
-	<input id="task" type="text" class="input-xlarge input-block-level">
-	<a id="add" class="btn">Add</a> 
+<template name="main">
+	<div class="row {{visibility}}">
+		<div class="span4">
+			{{> main_form}}
+		</div>
+		<div class="span8">
+			{{> listing}}
+			{{> info}}
+		</div>
+	</div>
+</template>
+
+<template name="config">
+	<div class="row {{visibility}}">
+		<div class="span4">
+			{{> config_form}}
+		</div>
+	</div>
+</template>
+
+<template name="nav">
+	<ul class="nav">
+		<li class="{{active_main}}">
+			<a id="main" href="#">Home</a> 
+		</li>
+		<li class="{{active_config}}">
+			<a id="config" href="#">Config</a>
+		</li>
+		<li>
+			<a id="auth">{{loginButtons align="right"}}</a>
+		</li>							
+	</ul>
+</template>
+
+<template name="main_form">
+	<form>
+		<label>Duration</label>
+		<input id="time" type="number" step="any" class="input-xlarge input-block-level">
+		<label>Task</label>
+		<input id="task" type="text" class="input-xlarge input-block-level">
+		<input type="submit" id="add" class="btn" value="Add">
+	</form>
+</template>
+
+<template name="config_form">
+	<form>
+		<label>Goal</label>
+		<input value="{{profile.goal}}" id="goal" type="number" step="any" class="input-xlarge input-block-level">
+		<input type="submit" id="save" class="btn" value="Save">
+	</form>
 </template>
 
 <template name="listing">
