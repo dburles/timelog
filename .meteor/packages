@@ -7,5 +7,5 @@ insecure
 preserve-inputs
 coffeescript
 accounts-password
-accounts-ui
 bootstrap
+accounts-ui-bootstrap-dropdown
