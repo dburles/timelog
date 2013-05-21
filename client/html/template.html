@@ -22,7 +22,13 @@
 <template name="main">
 	<div class="row {{visibility}}">
 		<div class="span4">
-			{{> main_form}}
+			<form id="main">
+				<label>Duration</label>
+				<input id="time" type="number" step="any" class="input-xlarge input-block-level">
+				<label>Task</label>
+				<input id="task" type="text" class="input-xlarge input-block-level">
+				<input type="submit" id="add" class="btn" value="Add">
+			</form>
 		</div>
 		<div class="span8">
 			{{> listing}}
@@ -34,7 +40,11 @@
 <template name="config">
 	<div class="row {{visibility}}">
 		<div class="span4">
-			{{> config_form}}
+			<form id="config">
+				<label>Goal</label>
+				<input value="{{profile.goal}}" id="goal" type="number" step="any" class="input-xlarge input-block-level">
+				<input type="submit" id="save" class="btn" value="Save">
+			</form>
 		</div>
 	</div>
 </template>
@@ -51,24 +61,6 @@
 			{{loginButtons align="right"}}
 		</li>							
 	</ul>
-</template>
-
-<template name="main_form">
-	<form>
-		<label>Duration</label>
-		<input id="time" type="number" step="any" class="input-xlarge input-block-level">
-		<label>Task</label>
-		<input id="task" type="text" class="input-xlarge input-block-level">
-		<input type="submit" id="add" class="btn" value="Add">
-	</form>
-</template>
-
-<template name="config_form">
-	<form>
-		<label>Goal</label>
-		<input value="{{profile.goal}}" id="goal" type="number" step="any" class="input-xlarge input-block-level">
-		<input type="submit" id="save" class="btn" value="Save">
-	</form>
 </template>
 
 <template name="listing">
